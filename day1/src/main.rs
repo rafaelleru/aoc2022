@@ -18,4 +18,15 @@ fn main() {
 
     println!("{}", sums.iter().max().unwrap());
 
+
+    // part 2
+    sums.sort();
+
+    let mut top3 : Vec<i32> = Vec::new();
+
+    for _i in 0..3 {
+        top3.push(sums.pop().unwrap())
+    }
+
+    println!("{}", top3.iter().sum::<i32>())
 }
