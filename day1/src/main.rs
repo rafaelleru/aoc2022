@@ -5,15 +5,7 @@ fn main() {
 
     for c in calories {
         let partials : Vec<&str> = c.split("\n").collect();
-        let mut sum = 0;
-        for p in partials {
-            println!(" \" {} \" ", p);
-            if p != "\n" {
-                sum += p.parse::<i32>().unwrap()
-            }
-        }
-
-        sums.push(sum);
+        sums.push(partials.iter().map(|p| p.parse::<i32>().unwrap()).sum::<i32>());
     }
 
     println!("{}", sums.iter().max().unwrap());
