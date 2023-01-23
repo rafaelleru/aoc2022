@@ -1,7 +1,7 @@
 fn main() {
-    let input : Vec<char> = include_str!("../example.txt").trim().chars().collect();
+    let input : Vec<char> = include_str!("../input.txt").trim().chars().collect();
 
-    for window in input.windows(4) {
+    for (i, window) in input.windows(4).enumerate() {
         // Use vector and insert as show by ThePrimeagean in the Yt video explaining this problem.
         // for this size of vector insert and check linearly than using a data type such as a set.
         let mut idx : Vec<char> = Vec::new();
@@ -15,21 +15,14 @@ fn main() {
         }
 
         if idx.len() == 4 {
-            for c in idx {
-                println!("{}" , c);
-            }
-
+            println!("Solution for Part 1 is: {}", i+4);
             break;
         }
     }
 
 
-    // TODO: return the index of the window. I already solved it by searching the substring in vim
-    // and getting the column xD
-
     // Part 2
-    println!("Part 2");
-    for window in input.windows(14) {
+    for (i, window) in input.windows(14).enumerate() {
         let mut idx : Vec<char> = Vec::new();
 
         for c in window {
@@ -41,11 +34,9 @@ fn main() {
         }
 
         if idx.len() == 14 {
-            for c in idx {
-                println!("{}" , c);
-            }
-
+            println!("Solution for part 2 is: {}" , i+14);
             break;
         }
     }
+
 }
