@@ -5,7 +5,6 @@ fn main() {
     let re : Regex = Regex::new(r"[a-zA-Z]").unwrap();
     let input : &str = include_str!("../input.txt");
     let mut stacks : HashMap<usize, Vec<&str>> = HashMap::new();
-    let mut stacks2 : HashMap<usize, Vec<&str>> = HashMap::new();
     let move_regex : Regex = Regex::new(r"move (\d+) from (\d+) to (\d+)").unwrap();
 
     // Build the stacks 
@@ -21,7 +20,7 @@ fn main() {
         }
     }
 
-    stacks2 = stacks.clone();
+    let mut stacks2 : HashMap<usize, Vec<&str>> = stacks.clone();
 
     for line in input.lines() {
         if line.starts_with("move") {
@@ -77,7 +76,7 @@ fn main() {
 
     }
 
-    println!("Solution for part 2:");
+    println!("\nSolution for part 2:");
     for i in 0..stacks2.len() {
         print!("{}", stacks2[&i].last().unwrap());
     }
