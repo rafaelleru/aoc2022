@@ -202,12 +202,6 @@ fn main() {
 
             let scenic_score = viewing_distance_top * viewing_distance_right * viewing_distance_left * viewing_distance_bottom;
 
-            println!("Cheking scenic score for {} is {}", map[i][j], scenic_score);
-            println!("top: {}", viewing_distance_top);
-            println!("bottom: {}", viewing_distance_bottom);
-            println!("left: {}", viewing_distance_left);
-            println!("right: {}", viewing_distance_right);
-
             if scenic_score > best_scenic_score {
                 best_scenic_score = scenic_score;
             }
